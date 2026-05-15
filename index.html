@@ -29,18 +29,18 @@
   --f-body:    'Instrument Sans', sans-serif;
   --f-mono:    'DM Mono', monospace;
 
-  --t-hero:   clamp(4.5rem, 11vw, 10.5rem);
-  --t-title:  clamp(3rem,   7.5vw, 7rem);
-  --t-h2:     clamp(2rem,   4.5vw, 4.2rem);
-  --t-body:   clamp(0.82rem,1.3vw, 1.05rem);
-  --t-small:  clamp(0.68rem, 0.95vw, 0.82rem);
-  --t-label:  clamp(0.58rem, 0.8vw,  0.7rem);
+  --t-hero:   clamp(4rem, 10vw, 9rem);
+  --t-title:  clamp(2.5rem, 6.5vw, 6rem);
+  --t-h2:     clamp(1.8rem, 4vw, 3.8rem);
+  --t-body:   clamp(0.8rem, 1.2vw, 1rem);
+  --t-small:  clamp(0.65rem, 0.9vw, 0.8rem);
+  --t-label:  clamp(0.55rem, 0.75vw, 0.65rem);
 
-  --pad:  clamp(2.5rem, 5.5vw, 6rem);
-  --g-xl: clamp(2.5rem, 5vw,  5rem);
-  --g-lg: clamp(1.5rem, 3vw,  3rem);
-  --g-md: clamp(0.9rem, 1.8vw, 1.8rem);
-  --g-sm: clamp(0.4rem, 0.9vw, 0.9rem);
+  --pad:  clamp(1.5rem, 4vw, 3.5rem);
+  --g-xl: clamp(1.2rem, 3.5vw, 2.5rem);
+  --g-lg: clamp(0.8rem, 2.5vw, 1.8rem);
+  --g-md: clamp(0.5rem, 1.5vw, 1rem);
+  --g-sm: clamp(0.3rem, 0.8vw, 0.5rem);
 }
 
 html {
@@ -57,12 +57,14 @@ body { height: 100%; overflow-x: hidden; }
 .slide {
   width: 100vw;
   height: 100vh; height: 100dvh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto; /* Allow scrolling if content is too tall */
   scroll-snap-align: start;
   position: relative;
   display: flex;
   flex-direction: column;
 }
+.slide::-webkit-scrollbar { width: 0; background: transparent; } /* Hide scrollbar for cleaner look */
 
 /* ─── PROGRESS BAR ──────────────────────────────────── */
 #prog {
@@ -91,6 +93,11 @@ body { height: 100%; overflow-x: hidden; }
   border: 1px solid rgba(255,255,255,0.09);
   border-radius: 100px;
   padding: 8px 18px;
+  width: auto;
+  max-width: 95vw;
+}
+@media (max-width: 480px) {
+  #nav { padding: 6px 12px; gap: 6px; }
 }
 .dot {
   width: 7px; height: 7px;
@@ -163,11 +170,11 @@ body { height: 100%; overflow-x: hidden; }
 .s1-title {
   font-family: var(--f-display);
   font-size: var(--t-hero);
-  line-height: 0.9;
+  line-height: 0.82;
   color: var(--white);
   letter-spacing: 0.01em;
   max-width: 13ch;
-  margin-bottom: var(--g-lg);
+  margin-bottom: var(--g-md);
 }
 .s1-title .hl { color: var(--blue); }
 
@@ -175,15 +182,15 @@ body { height: 100%; overflow-x: hidden; }
   width: clamp(36px, 7vw, 70px);
   height: 2px;
   background: var(--blue);
-  margin-bottom: var(--g-lg);
+  margin-bottom: var(--g-md);
 }
 
 .s1-desc {
   font-size: var(--t-body);
   color: var(--muted-inv);
-  line-height: 1.7;
+  line-height: 1.5;
   max-width: 46ch;
-  margin-bottom: var(--g-xl);
+  margin-bottom: var(--g-lg);
 }
 
 .s1-stats {
@@ -261,7 +268,7 @@ body { height: 100%; overflow-x: hidden; }
 .s2-title {
   font-family: var(--f-display);
   font-size: var(--t-title);
-  line-height: 0.9;
+  line-height: 0.82;
   color: var(--ink);
   letter-spacing:0.01em;
   max-width: 20ch;
@@ -276,7 +283,7 @@ body { height: 100%; overflow-x: hidden; }
 .s2-card {
   background: var(--white);
   border-radius: 18px;
-  padding: clamp(1.2rem, 2.5vw, 2rem);
+  padding: clamp(0.8rem, 2vw, 1.5rem);
   display: flex; flex-direction: column;
   gap: var(--g-sm);
   box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
@@ -309,7 +316,7 @@ body { height: 100%; overflow-x: hidden; }
 .s2-text {
   font-size: var(--t-body);
   color: var(--ink-2);
-  line-height: 1.58;
+  line-height: 1.45;
 }
 .s2-text strong { color: var(--ink); }
 
@@ -348,7 +355,7 @@ body { height: 100%; overflow-x: hidden; }
 .s3-title {
   font-family: var(--f-display);
   font-size: var(--t-title);
-  line-height: 0.9;
+  line-height: 0.82;
   color: var(--white);
   letter-spacing:0.01em;
 }
@@ -363,7 +370,7 @@ body { height: 100%; overflow-x: hidden; }
 }
 .s3-block {
   background: rgba(255,255,255,0.025);
-  padding: clamp(1.2rem, 2.5vw, 2.2rem);
+  padding: clamp(0.8rem, 2vw, 1.8rem);
   display: flex; flex-direction: column; gap: var(--g-sm);
   transition: background 0.2s;
 }
@@ -385,7 +392,7 @@ body { height: 100%; overflow-x: hidden; }
 .s3-desc {
   font-size: var(--t-body);
   color: rgba(255,255,255,0.55);
-  line-height: 1.55;
+  line-height: 1.45;
 }
 .s3-desc strong { color: rgba(255,255,255,0.88); }
 
@@ -429,7 +436,7 @@ body { height: 100%; overflow-x: hidden; }
 .s4-left::before {
   content: 'CO₂';
   position:absolute;
-  top:50%; left:50%;
+  top:35%; left:50%;
   transform:translate(-50%,-50%);
   font-family: var(--f-display);
   font-size: clamp(5.5rem, 13vw, 12rem);
@@ -449,7 +456,7 @@ body { height: 100%; overflow-x: hidden; }
 .s4-title {
   font-family: var(--f-display);
   font-size: var(--t-h2);
-  line-height: 0.93;
+  line-height: 0.85;
   color: var(--white);
   margin-bottom: var(--g-lg);
 }
@@ -563,7 +570,7 @@ body { height: 100%; overflow-x: hidden; }
 .s5-title {
   font-family:var(--f-display);
   font-size: var(--t-title);
-  line-height:0.9;
+  line-height:0.82;
   color:var(--white);
   letter-spacing:0.01em;
 }
@@ -581,7 +588,7 @@ body { height: 100%; overflow-x: hidden; }
 .s5-verdict-txt {
   font-size:var(--t-body);
   color: var(--muted-inv);
-  line-height:1.62;
+  line-height:1.5;
 }
 .s5-verdict-txt strong { color:var(--white); }
 
@@ -637,7 +644,7 @@ body { height: 100%; overflow-x: hidden; }
 .s5-idesc {
   font-size:var(--t-small);
   color:rgba(255,255,255,0.4);
-  line-height:1.55;
+  line-height:1.45;
 }
 
 .s5-bottom {
@@ -651,13 +658,54 @@ body { height: 100%; overflow-x: hidden; }
 
 
 /* ─── RESPONSIVE ────────────────────────────────────── */
-@media (max-width:860px) {
-  #s4 { grid-template-columns:1fr; }
-  .s4-left { justify-content:flex-end; max-height:38vh; }
-  .s5-inner { grid-template-columns:1fr; overflow-y:auto; }
-  .s5-left,.s5-right { border:none; }
+@media (max-width: 1024px) {
+  :root {
+    --t-hero: clamp(3.5rem, 10vw, 8rem);
+    --t-title: clamp(2.5rem, 7vw, 5rem);
+    --t-h2: clamp(1.8rem, 4.5vw, 3.5rem);
+    --pad: clamp(1.2rem, 3vw, 2.5rem);
+  }
 }
-@media (max-height:680px) {
+
+@media (max-width: 768px) {
+  :root {
+    --t-hero: clamp(3rem, 12vw, 6rem);
+    --t-title: clamp(2.2rem, 9vw, 4rem);
+    --t-h2: clamp(1.6rem, 7vw, 3rem);
+    --pad: clamp(1.2rem, 5vw, 2.5rem);
+    --g-xl: clamp(1.8rem, 4vw, 3rem);
+  }
+  
+  .s1-stats { flex-direction: column; gap: var(--g-md); }
+  .s2-grid { grid-template-columns: 1fr; }
+  .s3-trio { grid-template-columns: 1fr; }
+  
+  #s4 { grid-template-columns: 1fr; }
+  .s4-left { padding-top: 4rem; min-height: 40vh; }
+  .s4-facts { flex-wrap: wrap; }
+  
+  .s5-inner { grid-template-columns: 1fr; }
+  .s5-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --t-hero: 3.2rem;
+    --t-title: 2.4rem;
+    --t-body: 0.95rem;
+    --pad: 1.2rem;
+  }
+  
+  .s1-title { font-size: 3.2rem; }
+  .s1-chips { position: static; align-items: flex-start; margin-top: var(--g-lg); }
+  .chip { font-size: 0.75rem; }
+  
+  #nav { width: 90%; justify-content: center; bottom: 1.2rem; }
+  .dot { width: 6px; height: 6px; }
+  .dot.on { width: 15px; }
+}
+
+@media (max-height: 680px) {
   :root {
     --t-hero:  clamp(3.2rem,9vw,6.5rem);
     --t-title: clamp(2.2rem,6.5vw,5rem);
@@ -959,6 +1007,7 @@ const prog   = document.getElementById('prog');
 const ctr    = document.getElementById('ctr');
 const bars   = document.getElementById('barGroup');
 let cur = 0;
+let isThrottled = false;
 
 function go(i) { slides[i].scrollIntoView({ behavior:'smooth' }); }
 
@@ -980,9 +1029,27 @@ const io = new IntersectionObserver(entries => {
       setTimeout(() => bars.classList.add('bars-go'), 400);
     }
   });
-}, { threshold: 0.52 });
+}, { threshold: 0.4 });
 
 slides.forEach(s => io.observe(s));
+function throttle() {
+  isThrottled = true;
+  setTimeout(() => { isThrottled = false; }, 1000);
+}
+
+// Wheel
+window.addEventListener('wheel', e => {
+  if (isThrottled) return;
+  if (Math.abs(e.deltaY) < 20) return;
+  
+  if (e.deltaY > 0 && cur < slides.length - 1) {
+    go(cur + 1);
+    throttle();
+  } else if (e.deltaY < 0 && cur > 0) {
+    go(cur - 1);
+    throttle();
+  }
+}, { passive: true });
 
 // Keyboard
 document.addEventListener('keydown', e => {
