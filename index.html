@@ -239,6 +239,42 @@ body { height: 100%; overflow-x: hidden; }
   text-align:right;
 }
 
+/* Course Coordinator Badge */
+.s1-coordinator {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.4s ease;
+  margin-bottom: 8px;
+}
+.s1-coordinator:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+.s1-coord-label {
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0.5;
+}
+.s1-coord-name {
+  font-family: var(--f-body);
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
 
 /* ════════════════════════════════════════════
    S2 — MACRO NECESSITY
@@ -762,6 +798,7 @@ body { height: 100%; overflow-x: hidden; }
   
   .s1-title { font-size: 3.2rem; }
   .s1-chips { position: static; align-items: flex-start; margin-top: var(--g-lg); }
+  .s1-coordinator { position: static; align-items: flex-start; margin-top: var(--g-md); margin-bottom: 0; width: fit-content; }
   .chip { font-size: 0.75rem; }
   
   #nav { width: 90%; justify-content: center; bottom: 1.2rem; }
@@ -819,6 +856,7 @@ body { height: 100%; overflow-x: hidden; }
   <div class="bg-dots"></div>
   <div class="bg-glow"></div>
 
+
   <div class="s1-body">
     <div class="s1-kicker up d1">Aviation · Global Policy · 2026</div>
 
@@ -847,9 +885,10 @@ body { height: 100%; overflow-x: hidden; }
   </div>
 
   <div class="s1-chips fade d6">
-    <div class="chip chip-b">🌐 &nbsp;Systemic Infrastructure</div>
-    <div class="chip chip-a">💎 &nbsp;Individual Privilege</div>
-    <div class="chip-label">The paradox</div>
+    <div class="s1-coordinator">
+      <div class="s1-coord-label">Course Coordinator</div>
+      <div class="s1-coord-name">Asst prof Shahana Afrin Dina</div>
+    </div>
   </div>
 </section>
 
