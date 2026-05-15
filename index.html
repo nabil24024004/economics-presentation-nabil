@@ -46,7 +46,6 @@
 html {
   height: 100%; overflow-x: hidden;
   scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
   background: var(--ink);
   font-family: var(--f-body);
   -webkit-font-smoothing: antialiased;
@@ -163,14 +162,14 @@ body { height: 100%; overflow-x: hidden; }
   font-size: var(--t-label);
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--white);
   margin-bottom: var(--g-md);
 }
 
 .s1-title {
   font-family: var(--f-display);
   font-size: var(--t-hero);
-  line-height: 0.82;
+  line-height: 0.9;
   color: var(--white);
   letter-spacing: 0.01em;
   max-width: 13ch;
@@ -264,11 +263,12 @@ body { height: 100%; overflow-x: hidden; }
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--blue);
+  margin-bottom: var(--g-md);
 }
 .s2-title {
   font-family: var(--f-display);
   font-size: var(--t-title);
-  line-height: 0.82;
+  line-height: 0.9;
   color: var(--ink);
   letter-spacing:0.01em;
   max-width: 20ch;
@@ -351,11 +351,12 @@ body { height: 100%; overflow-x: hidden; }
   font-size: var(--t-label);
   letter-spacing:0.25em; text-transform:uppercase;
   color: var(--amber);
+  margin-bottom: var(--g-md);
 }
 .s3-title {
   font-family: var(--f-display);
   font-size: var(--t-title);
-  line-height: 0.82;
+  line-height: 0.9;
   color: var(--white);
   letter-spacing:0.01em;
 }
@@ -456,7 +457,7 @@ body { height: 100%; overflow-x: hidden; }
 .s4-title {
   font-family: var(--f-display);
   font-size: var(--t-h2);
-  line-height: 0.85;
+  line-height: 0.9;
   color: var(--white);
   margin-bottom: var(--g-lg);
 }
@@ -566,11 +567,12 @@ body { height: 100%; overflow-x: hidden; }
   font-size:var(--t-label);
   letter-spacing:0.25em; text-transform:uppercase;
   color: var(--green);
+  margin-bottom: var(--g-md);
 }
 .s5-title {
   font-family:var(--f-display);
   font-size: var(--t-title);
-  line-height:0.82;
+  line-height:0.88;
   color:var(--white);
   letter-spacing:0.01em;
 }
@@ -655,6 +657,62 @@ body { height: 100%; overflow-x: hidden; }
   line-height:1.55;
 }
 .s5-bottom strong { color:rgba(255,255,255,0.55); }
+
+
+/* ════════════════════════════════════════════
+   S6 — THANK YOU
+   Dark. Central focus.
+   ════════════════════════════════════════════ */
+#s6 { background: var(--ink); }
+#s6 .bg-glow {
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:80%; height:80%;
+  background: radial-gradient(circle, rgba(18,70,245,0.15) 0%, transparent 65%);
+  pointer-events:none;
+}
+.s6-body {
+  position:relative; z-index:2;
+  flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding: var(--pad);
+  text-align: center;
+}
+.s6-title {
+  font-family: var(--f-display);
+  font-size: var(--t-hero);
+  line-height: 0.9;
+  color: var(--white);
+  margin-bottom: var(--g-md);
+}
+.s6-subtitle {
+  font-family: var(--f-body);
+  font-size: var(--t-h2);
+  color: var(--blue);
+  margin-bottom: var(--g-lg);
+  font-weight: 600;
+}
+.s6-contact {
+  display: flex;
+  gap: var(--g-md);
+  margin-top: var(--g-xl);
+}
+.s6-chip {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 10px 20px;
+  border-radius: 100px;
+  color: rgba(255,255,255,0.6);
+  font-family: var(--f-mono);
+  font-size: var(--t-small);
+  transition: all 0.3s;
+}
+.s6-chip:hover {
+  background: var(--blue-dim);
+  border-color: var(--blue);
+  color: var(--white);
+  transform: translateY(-3px);
+}
 
 
 /* ─── RESPONSIVE ────────────────────────────────────── */
@@ -745,7 +803,8 @@ body { height: 100%; overflow-x: hidden; }
   <div class="dot"     onclick="go(2)"></div>
   <div class="dot"     onclick="go(3)"></div>
   <div class="dot"     onclick="go(4)"></div>
-  <span id="ctr">01 / 05</span>
+  <div class="dot"     onclick="go(5)"></div>
+  <span id="ctr">01 / 06</span>
 </nav>
 
 
@@ -755,7 +814,7 @@ body { height: 100%; overflow-x: hidden; }
   <div class="bg-glow"></div>
 
   <div class="s1-body">
-    <div class="s1-kicker up d1">Aviation · Global Policy · 2024</div>
+    <div class="s1-kicker up d1">Aviation · Global Policy · 2026</div>
 
     <h1 class="s1-title up d2">
       Necessity<br>or <span class="hl">Luxury</span>?
@@ -764,15 +823,15 @@ body { height: 100%; overflow-x: hidden; }
     <div class="s1-rule up d3"></div>
 
     <p class="s1-desc up d4">
-      9.5 billion passengers flew in 2024 — yet 80% of humanity has
+      10.2 billion passengers flew till 2026 but yet 80% of humanity has
       never boarded a single flight. The answer depends entirely on
       the scale of your lens.
     </p>
 
     <div class="s1-stats up d5">
       <div>
-        <div class="s1-num"><span class="hl">9.5</span>B</div>
-        <div class="s1-lbl">passengers<br>in 2024</div>
+        <div class="s1-num"><span class="hl">10.2</span>B</div>
+        <div class="s1-lbl">passengers<br>in 2026</div>
       </div>
       <div>
         <div class="s1-num"><span class="hl">80</span>%</div>
@@ -999,6 +1058,20 @@ body { height: 100%; overflow-x: hidden; }
   </div>
 </section>
 
+<!-- ══════════════ SLIDE 6 ══════════════ -->
+<section class="slide" id="s6">
+  <div class="bg-glow"></div>
+  <div class="s6-body">
+    <h1 class="s6-title up d1">THANK YOU</h1>
+    <p class="s6-subtitle up d2">Any questions?</p>
+    
+    <div class="s6-contact fade d3">
+      <div class="s6-chip">neosparkx.com</div>
+      <div class="s6-chip">linkedin.com/in/sheikh-azwad-abrar-nabil</div>
+    </div>
+  </div>
+</section>
+
 
 <script>
 const slides = Array.from(document.querySelectorAll('.slide'));
@@ -1015,7 +1088,7 @@ function activate(i) {
   cur = i;
   const pct = (i + 1) / slides.length * 100;
   prog.style.width = pct + '%';
-  ctr.textContent = String(i + 1).padStart(2,'0') + ' / 05';
+  ctr.textContent = String(i + 1).padStart(2,'0') + ' / 06';
   dots.forEach((d, j) => d.classList.toggle('on', j === i));
 }
 
